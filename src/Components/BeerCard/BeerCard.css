@@ -1,0 +1,14 @@
+.card {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  border: 4px solid;
+  border-radius: 16px;
+  width: 28vw;
+  padding: 16px;
+  margin: 16px 0 16px 0;
+}
+
+.beer-img {
+  height: 40vh;
+}

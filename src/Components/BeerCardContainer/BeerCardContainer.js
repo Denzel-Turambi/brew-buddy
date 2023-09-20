@@ -1,4 +1,4 @@
-// import BeerCardContainer from './BeerCardContainer.css'
+import './BeerCardContainer.css'
 import BeerCard from '../BeerCard/BeerCard'
 
 function BeerCardContainer({beers}) {
@@ -14,7 +14,7 @@ function BeerCardContainer({beers}) {
   })
 
   return(
-  <div>
+  <div className='beer-container'>
     {beerCards}
   </div>
  )
