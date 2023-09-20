@@ -9,6 +9,11 @@
   margin: 16px 0 16px 0;
 }
 
+.card:hover {
+  background: lightgrey;
+  transition: 0.4s;
+}
+
 .beer-img {
   height: 40vh;
 }
