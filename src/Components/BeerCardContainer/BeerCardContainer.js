@@ -8,6 +8,7 @@ function BeerCardContainer({beers}) {
         name={beer.name}
         id={beer.id}
         key={beer.id}
+        img={beer.image_url}
       />
     )
   })
