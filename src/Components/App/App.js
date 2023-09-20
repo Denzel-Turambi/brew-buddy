@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import { getBeers } from '../ApiCalls';
+import NavBar from '../NavBar/NavBar'
 
 function App() {
-  const [beers, setBeers] = useState([])
+  const [beers, setBeers] = useState([]);
 
   useEffect(() => {
     getBeers()
@@ -13,7 +14,10 @@ function App() {
   console.log(beers)
 
   return (
-    <h1>Brew Buddy</h1>
+    <div>
+    <NavBar />
+    
+    </div>
   );
 }
 
