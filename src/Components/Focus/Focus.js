@@ -5,7 +5,7 @@ import { getSingleBeer } from '../ApiCalls';
 
 function Focus() {
   const id = useParams();
-  const [singleBeer, setSingleBeer] = useState([]);
+  const [singleBeer, setSingleBeer] = useState({});
 
   useEffect(() => {
     getSingleBeer(id.id)
