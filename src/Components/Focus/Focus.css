@@ -1,0 +1,7 @@
+.single-beer-container {
+  display: flex;
+}
+
+.single-beer-img {
+  height: 40vh;
+}
