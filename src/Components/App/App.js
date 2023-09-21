@@ -8,20 +8,35 @@ import Focus from '../Focus/Focus';
 
 function App() {
   const [beers, setBeers] = useState([]);
+  const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     getBeers()
     .then(data => setBeers(data))
   }, []);
 
-  console.log(beers)
+  useEffect(() => {
+    const filteredBeers = beers.filter(beer => 
+      beer.name.toLowerCase().includes(search)
+    );
+    console.log('Filtered Beers', filteredBeers)
+    setFilter(filteredBeers)
+  }, [beers, search])
+
+  function searchFilter(event) {
+    setSearchValue(event.target.value);
+    const searchBeer = event.target.value.toLowerCase();
+    setSearch(searchBeer);
+  }
 
   return (
     <div>
-    <NavBar />
+    <NavBar search={search} searchFilter={searchFilter}/>
     <Routes>
       <Route path='/' element={
-        <BeerCardContainer beers={beers}/>
+        <BeerCardContainer beers={beers} search={search} filter={filter}/>
       } />
       <Route path='/:id' element={
         <Focus />
