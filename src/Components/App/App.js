@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { getBeers } from '../ApiCalls';
 import NavBar from '../NavBar/NavBar';
-import BeerCardContainer from '../BeerCardContainer/BeerCardContainer'
+import BeerCardContainer from '../BeerCardContainer/BeerCardContainer';
+import { Routes, Route } from 'react-router-dom';
+import Focus from '../Focus/Focus';
 
 function App() {
   const [beers, setBeers] = useState([]);
@@ -17,7 +19,14 @@ function App() {
   return (
     <div>
     <NavBar />
-    <BeerCardContainer beers={beers}/>
+    <Routes>
+      <Route path='/' element={
+        <BeerCardContainer beers={beers}/>
+      } />
+      <Route path='/:id' element={
+        <Focus />
+      } />
+    </Routes>
     </div>
   );
 }
