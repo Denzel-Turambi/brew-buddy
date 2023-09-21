@@ -2,8 +2,8 @@ import './NavBar.css'
 
 function NavBar() {
   return (
-    <nav>
-      <h1>Brew Buddy</h1>
+    <nav className='nav-section'>
+      <h1 className='logo-title'>Brew Buddy</h1>
     </nav>
   );
 };
