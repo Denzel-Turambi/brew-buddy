@@ -40,12 +40,8 @@ function App() {
     <NavBar search={search} searchFilter={searchFilter}/>
     <Error500 error={error}/>
     <Routes>
-      <Route path='/' element={
-        <BeerCardContainer beers={beers} search={search} filter={filter}/>
-      } />
-      <Route path='/:id' element={
-        <Focus />
-      } />
+      <Route path='/' element={<BeerCardContainer beers={beers} search={search} filter={filter}/>} />
+      <Route path='/:id' element={<Focus />} />
       <Route path="*" element={<Error404 />} />
     </Routes>
     </div>
