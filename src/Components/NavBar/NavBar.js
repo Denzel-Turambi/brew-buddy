@@ -8,9 +8,10 @@ function NavBar({ search, searchFilter }) {
       <NavLink to='/' style={{textDecoration:'none'}}>
         <h1 className='logo-title'>Brew Buddy</h1>
       </NavLink>
-      <form>
+      <form className="search-bar">
       <input 
           id="search-input"
+          className="search-input"
           type="text"
           placeholder="Search for beers..."
           name={search}
