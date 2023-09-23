@@ -20,4 +20,15 @@ describe('home page', () => {
     cy.get('.beer-container').children().last().contains('h1', 'Berliner Weisse With Yuzu - B-Sides').should('be.visible')
     .get('[href="/3"] > .card > .beer-img').should('have.attr', 'src').should('include', 'https://images.punkapi.com/v2/keg.png')
   })
+
+  it('should allow the user to search for beers by name', () => {
+    cy.visit('http://localhost:3000/')
+    .wait('@beers')
+    cy.url().should('contain', '/')
+    cy.get('#search-input').type('tra')
+    cy.get('.beer-container').children().first().contains('h1', 'Trashy Blonde').should('be.visible')
+    .get('[href="/2"] > .card > .beer-img').should('have.attr', 'src').should('include', 'https://images.punkapi.com/v2/2.png')
+    cy.get('.beer-container').children().first().contains('h1', 'Buzz').should('not.exist')
+    cy.get('.beer-container').children().first().contains('h1', 'Berliner Weisse With Yuzu - B-Sides').should('not.exist')
+  })
 })
