@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 function NavBar({ search, searchFilter }) {
   return (
     <nav className='nav-section'>
-      <NavLink to='/' style={{textDecoration:'none'}}>
+      <NavLink to='/' style={{ textDecoration: 'none' }}>
         <h1 className='logo-title'>Brew Buddy</h1>
       </NavLink>
       <form className="search-bar">
-      <input 
+        <input
           id="search-input"
           className="search-input"
           type="text"
@@ -17,7 +17,7 @@ function NavBar({ search, searchFilter }) {
           name={search}
           value={search}
           onChange={searchFilter}
-          />
+        />
       </form>
     </nav>
   );
