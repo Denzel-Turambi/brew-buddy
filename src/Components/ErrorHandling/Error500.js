@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 
 function Error500({ error }) {
   if (error) {
-    console.log(error)
     return (<h1>Oops! Something went wrong with the server! Please try again later.</h1>)
   }
 }
@@ -10,5 +9,5 @@ function Error500({ error }) {
 export default Error500;
 
 Error500.propTypes = {
-  error: PropTypes.object.isRequired
+  error: PropTypes.string.isRequired
 }

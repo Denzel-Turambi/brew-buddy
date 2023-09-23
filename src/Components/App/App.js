@@ -13,7 +13,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState([]);
   const [searchValue, setSearchValue] = useState("");
-  const [error, setError] = useState({});
+  const [error, setError] = useState("");
 
   useEffect(() => {
     getBeers()
