@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import './NavBar.css'
+import './NavBar.css';
+import PropTypes from 'prop-types';
 
 function NavBar({ search, searchFilter }) {
   return (
@@ -22,3 +23,8 @@ function NavBar({ search, searchFilter }) {
 };
 
 export default NavBar;
+
+NavBar.propTypes = {
+  search: PropTypes.string.isRequired,
+  searchFilter: PropTypes.func.isRequired,
+}
