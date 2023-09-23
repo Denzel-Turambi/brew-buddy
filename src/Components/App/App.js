@@ -6,6 +6,7 @@ import BeerCardContainer from '../BeerCardContainer/BeerCardContainer';
 import { Routes, Route } from 'react-router-dom';
 import Focus from '../Focus/Focus';
 import Error500 from '../ErrorHandling/Error500';
+import Error404 from '../ErrorHandling/Error404';
 
 function App() {
   const [beers, setBeers] = useState([]);
@@ -45,6 +46,7 @@ function App() {
       <Route path='/:id' element={
         <Focus />
       } />
+      <Route path="*" element={<Error404 />} /> {/* Handle 404 */}
     </Routes>
     </div>
   );
