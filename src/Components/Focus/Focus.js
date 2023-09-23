@@ -18,29 +18,29 @@ function Focus() {
   }, [id.id]);
 
   console.log(singleBeer)
-  if(singleBeerError){
+  if (singleBeerError) {
     return (
       <Error404 />
     )
   } else {
 
-    return(
+    return (
       <div className="single-beer-container">
-      <div className="single-beer-icon">
-        <img className="single-beer-img" src={singleBeer.image_url}/>
+        <div className="single-beer-icon">
+          <img className="single-beer-img" src={singleBeer.image_url} />
+        </div>
+        <div className="single-beer-description">
+          <h1 className="dscrpt-text">{singleBeer.name}</h1>
+          <h2 className="dscrpt-text">{singleBeer.tagline}</h2>
+          <p className="dscrpt-text"><strong>First Brewed: </strong>{singleBeer.first_brewed}</p>
+          <p className="dscrpt-text"><strong>Description: </strong>{singleBeer.description}</p>
+          <p className="dscrpt-text"><strong>Alcohol by volume (ABV): </strong>{singleBeer.abv}</p>
+          <p className="dscrpt-text"><strong>Food Pairings: </strong>{singleBeer.food_pairing}</p>
+          <p className="dscrpt-text"><strong>Brewers Tips: </strong>{singleBeer.brewers_tips}</p>
+        </div>
       </div>
-      <div className="single-beer-description">
-        <h1 className="dscrpt-text">{singleBeer.name}</h1>
-        <h2 className="dscrpt-text">{singleBeer.tagline}</h2>
-        <p className="dscrpt-text"><strong>First Brewed: </strong>{singleBeer.first_brewed}</p>
-        <p className="dscrpt-text"><strong>Description: </strong>{singleBeer.description}</p>
-        <p className="dscrpt-text"><strong>Alcohol by volume (ABV): </strong>{singleBeer.abv}</p>
-        <p className="dscrpt-text"><strong>Food Pairings: </strong>{singleBeer.food_pairing}</p>
-        <p className="dscrpt-text"><strong>Brewers Tips: </strong>{singleBeer.brewers_tips}</p>
-      </div>
-    </div>
-  )
-}
+    )
+  }
 }
 
 export default Focus;
