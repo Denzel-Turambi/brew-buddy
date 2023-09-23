@@ -1,5 +1,5 @@
 function getBeers() {
-  return fetch('https://api.punkapi.com/v2/beers')
+  return fetch('https://api.punkapi.com/v2/beersfff')
   .then(res => {
     if(!res.ok){
       throw new Error (`${res.status}`)
