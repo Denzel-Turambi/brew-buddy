@@ -1,4 +1,4 @@
-describe('template spec', () => {
+describe('Focus page', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://api.punkapi.com/v2/beers', {
       statusCode: 200,
