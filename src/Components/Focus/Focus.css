@@ -1,7 +1,42 @@
 .single-beer-container {
   display: flex;
+  justify-content: space-between;
+  margin: 1em;
 }
 
 .single-beer-img {
   height: 40vh;
+  margin-right: 2em;
+  padding: 1em;
+  border: 2px solid;
+  border-radius: 10px;
+}
+
+.single-beer-description {
+  padding: 2em;
+  border-left: 2px solid;
+}
+
+.dscrpt-text {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 40em) {
+  .single-beer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .single-beer-img {
+    margin-right: 0;
+    margin-bottom: 2em;
+    padding: 1em 8em 1em 8em;
+    border: 2px solid;
+    border-radius: 10px;
+  }
+
+  .single-beer-description {
+    border-left: none;
+    border-top: 2px solid;
+  }
 }
