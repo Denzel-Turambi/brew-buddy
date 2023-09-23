@@ -46,5 +46,5 @@ BeerCardContainer.propTypes = {
     })
   ),
   search: PropTypes.string.isRequired,
-  filter: PropTypes.string.isRequired,
+  // filter: PropTypes.array.isRequired
 }

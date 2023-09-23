@@ -5,26 +5,30 @@ import NavBar from '../NavBar/NavBar';
 import BeerCardContainer from '../BeerCardContainer/BeerCardContainer';
 import { Routes, Route } from 'react-router-dom';
 import Focus from '../Focus/Focus';
+import Error500 from '../ErrorHandling/Error500';
+import Error404 from '../ErrorHandling/Error404';
 
 function App() {
   const [beers, setBeers] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
   const [searchValue, setSearchValue] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     getBeers()
     .then(data => setBeers(data))
+    .catch(error => setError(error))
   }, []);
 
   useEffect(() => {
     const filteredBeers = beers.filter(beer => 
       beer.name.toLowerCase().includes(search)
-    );
-    console.log('Filtered Beers', filteredBeers)
-    setFilter(filteredBeers)
-  }, [beers, search])
-
+      );
+      console.log('Filtered Beers', filteredBeers)
+      setFilter(filteredBeers)
+    }, [beers, search])
+    
   function searchFilter(event) {
     setSearchValue(event.target.value);
     const searchBeer = event.target.value.toLowerCase();
@@ -34,6 +38,7 @@ function App() {
   return (
     <div>
     <NavBar search={search} searchFilter={searchFilter}/>
+    <Error500 error={error}/>
     <Routes>
       <Route path='/' element={
         <BeerCardContainer beers={beers} search={search} filter={filter}/>
@@ -41,6 +46,7 @@ function App() {
       <Route path='/:id' element={
         <Focus />
       } />
+      <Route path="*" element={<Error404 />} />
     </Routes>
     </div>
   );

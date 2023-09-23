@@ -2,20 +2,30 @@ import { useState, useEffect } from 'react';
 import './Focus.css'
 import { useParams } from 'react-router-dom';
 import { getSingleBeer } from '../ApiCalls';
+import Error404 from '../ErrorHandling/Error404';
 
 function Focus() {
   const id = useParams();
   const [singleBeer, setSingleBeer] = useState({});
+  const [singleBeerError, setSingleBeerError] = useState("");
 
   useEffect(() => {
     getSingleBeer(id.id)
-    .then(data => setSingleBeer(data[0]))
-  }, []);
+      .then((data) => setSingleBeer(data[0]))
+      .catch((error) => {
+        setSingleBeerError(error)
+      });
+  }, [id.id]);
 
   console.log(singleBeer)
+  if(singleBeerError){
+    return (
+      <Error404 />
+    )
+  } else {
 
-  return(
-    <div className="single-beer-container">
+    return(
+      <div className="single-beer-container">
       <div className="single-beer-icon">
         <img className="single-beer-img" src={singleBeer.image_url}/>
       </div>
@@ -30,6 +40,7 @@ function Focus() {
       </div>
     </div>
   )
+}
 }
 
 export default Focus;
