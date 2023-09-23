@@ -11,7 +11,7 @@ import Error404 from '../ErrorHandling/Error404';
 function App() {
   const [beers, setBeers] = useState([]);
   const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [error, setError] = useState("");
 
