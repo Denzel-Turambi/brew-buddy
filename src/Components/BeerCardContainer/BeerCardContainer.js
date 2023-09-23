@@ -1,5 +1,6 @@
-import './BeerCardContainer.css'
-import BeerCard from '../BeerCard/BeerCard'
+import './BeerCardContainer.css';
+import BeerCard from '../BeerCard/BeerCard';
+import PropTypes from 'prop-types';
 
 function BeerCardContainer({ beers, search, filter }) {
   let allBeers = [];
@@ -35,3 +36,15 @@ function BeerCardContainer({ beers, search, filter }) {
 }
 
 export default BeerCardContainer;
+
+BeerCardContainer.propTypes = {
+  beers: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      image_url: PropTypes.string.isRequired
+    })
+  ),
+  search: PropTypes.string.isRequired,
+  filter: PropTypes.string.isRequired,
+}

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './BeerCard.css'
+import PropTypes from 'prop-types';
 
 function BeerCard({ name, id, img }) {
   return (
@@ -13,3 +14,9 @@ function BeerCard({ name, id, img }) {
 }
 
 export default BeerCard;
+
+BeerCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  img: PropTypes.string.isRequired
+}
