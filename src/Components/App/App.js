@@ -46,7 +46,7 @@ function App() {
       <Route path='/:id' element={
         <Focus />
       } />
-      <Route path="*" element={<Error404 />} /> {/* Handle 404 */}
+      <Route path="*" element={<Error404 />} />
     </Routes>
     </div>
   );

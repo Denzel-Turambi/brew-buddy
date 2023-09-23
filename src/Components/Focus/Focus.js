@@ -7,21 +7,13 @@ import Error404 from '../ErrorHandling/Error404';
 function Focus() {
   const id = useParams();
   const [singleBeer, setSingleBeer] = useState({});
-  const [singleBeerError, setSingleBeerError] = useState("")
-
-  // useEffect(() => {
-  //   getSingleBeer(id.id)
-  //   .then(data => setSingleBeer(data[0]))
-  // }, []);
+  const [singleBeerError, setSingleBeerError] = useState("");
 
   useEffect(() => {
     getSingleBeer(id.id)
       .then((data) => setSingleBeer(data[0]))
       .catch((error) => {
         setSingleBeerError(error)
-        // Handle the error appropriately
-        // console.error('Error fetching single beer in Focus component:', error);
-        // You may want to redirect to a 404 page or display an error message here
       });
   }, [id.id]);
 
