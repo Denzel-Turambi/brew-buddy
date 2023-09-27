@@ -1,14 +1,17 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import './NavBar.css';
 import PropTypes from 'prop-types';
 
 function NavBar({ search, searchFilter }) {
+  const location = useLocation();
+
   return (
     <nav className='nav-section'>
       <NavLink to='/' style={{ textDecoration: 'none' }}>
         <h1 className='logo-title'>Brew Buddy</h1>
       </NavLink>
-      <form className="search-bar">
+      {location.pathname === '/' && (
+        <form className="search-bar">
         <input
           id="search-input"
           className="search-input"
@@ -17,8 +20,9 @@ function NavBar({ search, searchFilter }) {
           name={search}
           value={search}
           onChange={searchFilter}
-        />
+          />
       </form>
+          )}
     </nav>
   );
 };

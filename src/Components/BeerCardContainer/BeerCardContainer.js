@@ -1,42 +1,32 @@
+import React from 'react';
 import './BeerCardContainer.css';
 import BeerCard from '../BeerCard/BeerCard';
 import PropTypes from 'prop-types';
 
 function BeerCardContainer({ beers, search, filter }) {
-  let allBeers = [];
-  let filtered = [];
+  const filteredBeers = search ? filter : beers;
 
-  filtered = search ? filter.map(filteredBeer => {
-    return (
-      <BeerCard
-        name={filteredBeer.name}
-        id={filteredBeer.id}
-        key={filteredBeer.id}
-        img={filteredBeer.image_url}
-      />
-    )
-  }) : (
-    allBeers = beers.map(beer => {
-      return (
-        <BeerCard
-          name={beer.name}
-          id={beer.id}
-          key={beer.id}
-          img={beer.image_url}
-        />
-      )
-    })
-  )
+  const beerCards = filteredBeers.map(filteredBeer => (
+    <BeerCard
+      name={filteredBeer.name}
+      id={filteredBeer.id}
+      key={filteredBeer.id}
+      img={filteredBeer.image_url}
+    />
+  ));
 
   return (
     <div className='beer-container'>
-      {search ? filtered : allBeers}
+      {filteredBeers.length > 0 ? (
+        beerCards
+      ) : (
+        <h2 className='no-results-message'>Sorry, no search results</h2>
+      )}
     </div>
-  )
+  );
 }
 
 export default BeerCardContainer;
-
 BeerCardContainer.propTypes = {
   beers: PropTypes.arrayOf(
     PropTypes.shape({
