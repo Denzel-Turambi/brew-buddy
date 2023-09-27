@@ -31,4 +31,12 @@ describe('home page', () => {
     cy.get('.beer-container').children().first().contains('h1', 'Buzz').should('not.exist')
     cy.get('.beer-container').children().first().contains('h1', 'Berliner Weisse With Yuzu - B-Sides').should('not.exist')
   })
+
+  it('should display error message if there are no search results', () => {
+    cy.visit('http://localhost:3000/')
+    .wait('@beers')
+    cy.url().should('contain', '/')
+    cy.get('#search-input').type('asdf')
+    cy.get('.beer-container').contains('h2', 'Sorry, no search results').should('be.visible')
+  })
 })
