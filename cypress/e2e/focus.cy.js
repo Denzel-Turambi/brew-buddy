@@ -17,6 +17,7 @@ describe('Focus page', () => {
     cy.get('.beer-container').children().first().click()
     cy.url().should('contain', '/1')
     cy.get('.single-beer-icon').should('be.visible')
+    cy.get('.search-bar').should('not.exist')
     cy.get('.single-beer-description').contains('h1', 'Buzz').should('be.visible')
     cy.get('.single-beer-description').contains('h2', 'A Real Bitter Experience.').should('be.visible')
     cy.get('.single-beer-description').contains('p', 'First Brewed: 09/2007').should('be.visible')
